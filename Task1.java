@@ -18,4 +18,15 @@ public class Task1 {
         
         return x;
     }
+
+    public static int SumOfDigit(int x){
+        if (x < 0){
+            throw new ArithmeticException("Число меньше 0");
+        }
+        
+        if(x < 10 && x >= 0) {
+            return x;
+        } 
+        return (x % 10 + SumOfDigit(x / 10));
+    }
 }
