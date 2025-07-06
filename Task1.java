@@ -34,4 +34,18 @@ public class Task1 {
         list.removeFirst();
         return 1 + lengthList(list);
     }
+
+
+    public static boolean Palindrom(String x){
+        if (x.length() <= 1){
+            return true;
+        }
+        char homeElem = x.charAt(0);
+        char endElem = x.charAt(x.length() - 1);
+        if(homeElem != endElem){
+            return false;
+        }
+        String xNew = x.substring(1, x.length() - 1);
+        return Palindrom(xNew);
+    } 
 }
