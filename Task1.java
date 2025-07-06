@@ -40,12 +40,18 @@ public class Task1 {
         if (x.length() <= 1){
             return true;
         }
-        char homeElem = x.charAt(0);
-        char endElem = x.charAt(x.length() - 1);
-        if(homeElem != endElem){
-            return false;
+        return ProcessIdElemOfPalindrom(x, 0, x.length() - 1);
+    }
+    private static boolean ProcessIdElemOfPalindrom(String x, int left, int right) {
+        char homeElem = x.charAt(left);
+        char endElem = x.charAt(right);  
+        if (left >= right) {
+            return true;
         }
-        String xNew = x.substring(1, x.length() - 1);
-        return Palindrom(xNew);
+        if (homeElem != endElem) {
+            return false; 
+        }
+        return ProcessIdElemOfPalindrom(x, left + 1, right - 1);
+    }
     } 
 }
