@@ -53,4 +53,18 @@ public class Task1 {
         }
         return ProcessIdElemOfPalindrom(x, step + 1);
     }
+
+
+    public static String EvenValues(List<Integer> list, int index, String result) {
+        if (list.isEmpty()) {
+            return "Список пуст";
+        }
+        if (index >= list.size()) {
+            return result;
+        }
+        if (list.get(index) % 2 == 0) {
+            result += list.get(index) + " "; 
+        }
+        return EvenValues(list, index + 1, result);
+    }
 }
