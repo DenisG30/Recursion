@@ -55,16 +55,13 @@ public class Task1 {
     }
 
 
-    public static String EvenValues(List<Integer> list, int index, String result) {
-        if (list.isEmpty()) {
-            return "Список пуст";
-        }
+    public static void EvenValues(List<Integer> list, int index) {
         if (index >= list.size()) {
-            return result;
+            return;
         }
         if (list.get(index) % 2 == 0) {
-            result += list.get(index) + " "; 
+            System.out.println(list.get(index));
         }
-        return EvenValues(list, index + 1, result);
+        EvenValues(list, index + 1);
     }
 }
