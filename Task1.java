@@ -55,13 +55,17 @@ public class Task1 {
     }
 
 
-    public static void EvenValues(List<Integer> list, int index) {
+    public static void EvenValues(List<Integer> list) {
+        ProcessEvenValues(list, 0);
+    }
+
+    private static void ProcessEvenValues(List<Integer> list, int index) {
         if (index >= list.size()) {
-            return;
+           return;
         }
         if (list.get(index) % 2 == 0) {
-            System.out.println(list.get(index));
+            System.out.print(list.get(index) + " ");
         }
-        EvenValues(list, index + 1);
+        ProcessEvenValues(list, index + 1);
     }
 }
