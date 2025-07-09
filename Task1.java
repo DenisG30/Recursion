@@ -68,4 +68,23 @@ public class Task1 {
         }
         ProcessEvenValues(list, index + 1);
     }
+
+
+    public static void EvenIndex(List<Integer> list) {
+        if (list == null || list.isEmpty()) {
+            System.out.println("Список пустой или равен null");
+            return;
+        }
+        ProcessEvenIndex(list, 0);
+    }
+
+    private static void ProcessEvenIndex(List<Integer> list, int index) {
+        if (index >= list.size()) {
+           return;
+        }
+        if (index % 2 == 0) {
+            System.out.print(list.get(index) + " ");
+        }
+        ProcessEvenIndex(list, index + 1);
+    }
 }
