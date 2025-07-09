@@ -82,9 +82,9 @@ public class Task1 {
         if (index >= list.size()) {
            return;
         }
-        if (index % 2 == 0) {
-            System.out.print(list.get(index) + " ");
-        }
-        ProcessEvenIndex(list, index + 1);
+        
+         System.out.print(list.get(index) + " ");
+        
+        ProcessEvenIndex(list, index + 2);
     }
 }
