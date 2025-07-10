@@ -70,21 +70,26 @@ public class Task1 {
     }
 
 
-    public static void EvenIndex(List<Integer> list) {
+    public static List<Integer> EvenIndex(List<Integer> list) {
         if (list == null || list.isEmpty()) {
-            System.out.println("Список пустой или равен null");
-            return;
+            return new ArrayList<>();
         }
-        ProcessEvenIndex(list, 0);
+        return ProcessEvenIndex(list, 0);
     }
 
-    private static void ProcessEvenIndex(List<Integer> list, int index) {
+    private static List<Integer> ProcessEvenIndex(List<Integer> list, int index) {
+
+        List<Integer> evenIndexElements = new ArrayList<>();
+
         if (index >= list.size()) {
-           return;
+           return evenIndexElements;
         }
+   
+evenIndexElements.add(list.get(index));
+
+evenIndexElements.addAll(ProcessEvenIndex(list, index + 2));
+
+        return evenIndexElements;
         
-         System.out.print(list.get(index) + " ");
-        
-        ProcessEvenIndex(list, index + 2);
     }
 }
