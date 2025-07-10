@@ -78,18 +78,12 @@ public class Task1 {
     }
 
     private static List<Integer> ProcessEvenIndex(List<Integer> list, int index) {
-
         List<Integer> evenIndexElements = new ArrayList<>();
-
         if (index >= list.size()) {
            return evenIndexElements;
         }
-   
-evenIndexElements.add(list.get(index));
-
-evenIndexElements.addAll(ProcessEvenIndex(list, index + 2));
-
-        return evenIndexElements;
-        
+        evenIndexElements.add(list.get(index));
+        evenIndexElements.addAll(ProcessEvenIndex(list, index + 2));
+        return evenIndexElements; 
     }
 }
