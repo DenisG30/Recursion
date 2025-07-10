@@ -70,20 +70,14 @@ public class Task1 {
     }
 
 
-    public static List<Integer> EvenIndex(List<Integer> list) {
-        if (list == null || list.isEmpty()) {
-            return new ArrayList<>();
-        }
-        return ProcessEvenIndex(list, 0);
+    public static void EvenIndex(List<Integer> list) {
+        ProcessEvenIndex(list, 0);
     }
-
-    private static List<Integer> ProcessEvenIndex(List<Integer> list, int index) {
-        List<Integer> evenIndexElements = new ArrayList<>();
+    private static void ProcessEvenIndex(List<Integer> list, int index) {
         if (index >= list.size()) {
-           return evenIndexElements;
+           return;
         }
-        evenIndexElements.add(list.get(index));
-        evenIndexElements.addAll(ProcessEvenIndex(list, index + 2));
-        return evenIndexElements; 
+        System.out.print(list.get(index) + " ");
+        ProcessEvenIndex(list, index + 2);
     }
 }
