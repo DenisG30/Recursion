@@ -80,4 +80,27 @@ public class Task1 {
         System.out.print(list.get(index) + " ");
         ProcessEvenIndex(list, index + 2);
     }
+
+
+    
+    public static int findSecondValue(List<Integer> list){
+        if (list.isEmpty()) {
+            throw new ArithmeticException("Список пуст");
+        } 
+        return findSecondMaximum(list, 0, 0, 0);
+    }
+
+    private static int findSecondMaximum(List<Integer> list, int max, int secondMax, int index) {
+        if(index >= list.size()) {
+            return secondMax;
+        }
+        int tempValue = list.get(index); 
+        if (max == 0 || tempValue >= max) {
+            secondMax = max; 
+            max = tempValue; 
+        } else if (tempValue <= max && (secondMax == 0 || tempValue > secondMax)) {
+            secondMax = tempValue; 
+        }
+        return findSecondMaximum(list, max, secondMax, index + 1);
+    }
 }
