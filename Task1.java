@@ -83,14 +83,14 @@ public class Task1 {
 
 
     
-    public static int findSecondValue(List<Integer> list){
+    public static void findSecondValue(List<Integer> list){
         if (list.isEmpty()) {
             throw new ArithmeticException("Список пуст");
         } 
         return findSecondMaximum(list, list.get(0), list.get(1), 0);
     }
 
-    private static int findSecondMaximum(List<Integer> list, int max, int secondMax, int index) {
+    private static void findSecondMaximum(List<Integer> list, int max, int secondMax, int index) {
         if(index >= list.size()) {
             return secondMax;
         }
