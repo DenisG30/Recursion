@@ -83,24 +83,37 @@ public class Task1 {
 
 
     
-    public static void findSecondValue(List<Integer> list){
-        if (list.isEmpty()) {
-            throw new ArithmeticException("Список пуст");
-        } 
-        return findSecondMaximum(list, list.get(0), list.get(1), 0);
+    public static <T extends Comparable<T>> T findSecondValue(List<T> list) {
+        if (list.size() < 2) {
+            throw new ArithmeticException("Список должен содержать два или более элементов");
+        }
+    
+        T max, secondMax;
+        if (list.get(0).compareTo(list.get(1)) > 0) {
+            max = list.get(0);
+            secondMax = list.get(1);
+        } else {
+            max = list.get(1);
+            secondMax = list.get(0);
+        }
+    
+        return findSecondMaximum(list, max, secondMax, 2);
     }
-
-    private static void findSecondMaximum(List<Integer> list, int max, int secondMax, int index) {
-        if(index >= list.size()) {
+    
+    private static <T extends Comparable<T>> T findSecondMaximum(List<T> list, T max, T secondMax, int index) {
+        if (index >= list.size()) {
             return secondMax;
         }
-        int tempValue = list.get(index); 
-        if (max == 0 || tempValue >= max) {
+        
+        T tempValue = list.get(index);
+        
+        if (tempValue.compareTo(max) > 0) {
             secondMax = max; 
             max = tempValue; 
-        } else if (tempValue <= max && (secondMax == 0 || tempValue > secondMax)) {
+        } else if (tempValue.compareTo(secondMax) > 0 && tempValue.compareTo(max) < 0) {
             secondMax = tempValue; 
         }
+    
         return findSecondMaximum(list, max, secondMax, index + 1);
     }
 }
