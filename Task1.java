@@ -87,7 +87,7 @@ public class Task1 {
         if (list.isEmpty()) {
             throw new ArithmeticException("Список пуст");
         } 
-        return findSecondMaximum(list, Integer.MIN_VALUE, Integer.MIN_VALUE, 0);
+        return findSecondMaximum(list, list.get(0), list.get(1), 0);
     }
 
     private static int findSecondMaximum(List<Integer> list, int max, int secondMax, int index) {
