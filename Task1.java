@@ -117,9 +117,10 @@ public class Task1 {
         return findSecondMaximum(list, max, secondMax, index + 1);
     }
 
-    public static void FileSearch(String path) {
+    public static List<File> FileSearch(String path) {
         List<File> files = new ArrayList<>();
         Search(new File(path), files);
+        return files; 
     }
 
     private static void Search(File directory, List<File> files) {
@@ -129,12 +130,10 @@ public class Task1 {
                 for (File item : items) {
                     if (item.isFile()) {
                         files.add(item);
-                    } 
-                    else if (item.isDirectory()) {
-                        Search(item, files);
+                    } else if (item.isDirectory()) {
+                        Search(item, files); 
                     }
                 }
             }
         }
     }
-}
