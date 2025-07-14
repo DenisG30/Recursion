@@ -117,8 +117,7 @@ public class Task1 {
         return findSecondMaximum(list, max, secondMax, index + 1);
     }
 
-    
-
+ 
     public static List<File> FileSearch(String path) {
         List<File> files = new ArrayList<>();
         File directory = new File(path);
