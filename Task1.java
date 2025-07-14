@@ -116,4 +116,25 @@ public class Task1 {
     
         return findSecondMaximum(list, max, secondMax, index + 1);
     }
+
+    public static void FileSearch(String path) {
+        List<File> files = new ArrayList<>();
+        Search(new File(path), files);
+    }
+
+    private static void Search(File directory, List<File> files) {
+        if (directory.isDirectory()) {
+            File[] items = directory.listFiles();
+            if (items != null) {
+                for (File item : items) {
+                    if (item.isFile()) {
+                        files.add(item);
+                    } 
+                    else if (item.isDirectory()) {
+                        Search(item, files);
+                    }
+                }
+            }
+        }
+    }
 }
