@@ -118,23 +118,29 @@ public class Task1 {
     }
 
 
-    public static List<File> FileSearch(String path) {
-        List<File> files = new ArrayList<>();
-        File directory = new File(path);
 
-        if (directory.isDirectory()) {
-            File[] items = directory.listFiles();
-            if (items != null) {
-                for (File item : items) {
-                    if (item.isFile()) {
-                        files.add(item);
-                    } else if (item.isDirectory()) {
-                        files.addAll(FileSearch(item.getAbsolutePath()));
-                    }
-                }
-            }
-        }
+public static List<File> FileSearch(String path) {
+    List<File> files = new ArrayList<>();
+    File directory = new File(path);
 
+    if (!directory.isDirectory()) {
         return files;
+    }
+
+    File[] items = directory.listFiles();
+    if (items == null) {
+        return files; 
+    }
+
+    for (File item : items) {
+        if (item.isFile()) {
+            files.add(item);
+        } else if (item.isDirectory()) {
+            files.addAll(FileSearch(item.getAbsolutePath()));
+        }
+    }
+
+    return files;
+}
 
 }
