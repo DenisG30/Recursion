@@ -125,20 +125,16 @@ public class Task1 {
         if (directory.isDirectory()) {
             File[] items = directory.listFiles();
             if (items != null) {
-                ProcessSearch(items, files);
+                for (File item : items) {
+                    if (item.isFile()) {
+                        files.add(item);
+                    } else if (item.isDirectory()) {
+                        files.addAll(FileSearch(item.getAbsolutePath()));
+                    }
+                }
             }
         }
-        return files;
-    }
 
-    private static void ProcessSearch(File[] items, List<File> files) {
-        for (File item : items) {
-            if (item.isFile()) {
-                files.add(item);
-            } else if (item.isDirectory()) { 
-files.addAll(FileSearch(item.getAbsolutePath()));
-            }
-        }
-    }
+        return files;
 
 }
